@@ -12,7 +12,7 @@ Source3: 	gtklp-icon16.png
 Patch0:		gtklp-1.2.2-simple.diff
 BuildRequires: 	cups-common
 BuildRequires:  gtk+2-devel
-BuildPrereq: 	cups-devel > 1.1
+BuildRequires: 	cups-devel > 1.1
 Requires: 	cups > 1.1
 
 %description
