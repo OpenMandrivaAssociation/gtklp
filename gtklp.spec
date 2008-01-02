@@ -14,6 +14,7 @@ BuildRequires: 	cups-common
 BuildRequires:  gtk+2-devel
 BuildRequires: 	cups-devel > 1.1
 Requires: 	cups > 1.1
+BuildRoot: 	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 A GTK frontend for CUPS
