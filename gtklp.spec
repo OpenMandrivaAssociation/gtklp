@@ -38,7 +38,7 @@ cp %{SOURCE3} Mandriva/gtklp-icon16.png
 %install
 rm -fr %{buildroot}
 
-install -d %{buildroot}%{_menudir}
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
 install -d %{buildroot}%{_liconsdir}
 install -d %{buildroot}%{_iconsdir}
 install -d %{buildroot}%{_miconsdir}
@@ -46,24 +46,24 @@ install -d %{buildroot}%{_miconsdir}
 %makeinstall
 
 # menu entry
-cat > %{buildroot}%{_menudir}/%{name} <<EOF
-?package(%{name}): \
-needs="x11" \
-section="Configuration/Printing" \
-title="GTK CUPS" \
-longtitle="GTK Frontend for CUPS" \
-command="%{_bindir}/gtklp" \
-icon="gtklp.png"
+cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
+[Desktop Entry]
+Type=Application
+Categories=HardwareSettings;
+Name=GTK CUPS
+Comment=GTK Frontend for CUPS
+Exec=%{_bindir}/gtklp
+Icon=gtklp
 EOF
 
-cat > %{buildroot}%{_menudir}/gtklpq <<EOF
-?package(%{name}): \
-needs="x11" \
-section="Configuration/Printing" \
-title="GTK Printer Queue" \
-longtitle="GTK Frontend to GTKlp CUPS Queue" \
-command="%{_bindir}/gtklpq" \
-icon="gtklp.png"
+cat << EOF > %buildroot%{_datadir}/applications/mandriva-gtklpq.desktop
+[Desktop Entry]
+Type=Application
+Categories=HardwareSettings;
+Name=GTK Printer Queue
+Comment=GTK Frontend to GTKlp CUPS Queue
+Exec=%{_bindir}/gtklpq
+Icon=gtklp
 EOF
 
 # menu icon
@@ -87,7 +87,7 @@ rm -rf %{buildroot}
 %defattr(0644,root,root)
 %doc AUTHORS BUGS ChangeLog COPYING NEWS README TODO USAGE
 %{_bindir}/*
-%{_menudir}/*
+%{_datadir}/applications/mandriva-*.desktop
 %{_iconsdir}/*.png
 %{_liconsdir}/*.png
 %{_miconsdir}/*.png
