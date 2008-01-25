@@ -1,8 +1,8 @@
 Summary: 	A GTK frontend for CUPS
 Name: 		gtklp
 Version: 	1.2.2
-Release: 	%mkrel 2
-License: 	GPL
+Release: 	%mkrel 3
+License: 	GPLv2+
 Group: 		System/Configuration/Printing
 Source0: 	http://prdownloads.sourceforge.net/gtklp/%{name}-%{version}.src.tar.bz2
 Url: 		http://www.stud.uni-hannover.de/~sirtobi/gtklp/
@@ -49,7 +49,7 @@ install -d %{buildroot}%{_miconsdir}
 cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
 [Desktop Entry]
 Type=Application
-Categories=HardwareSettings;
+Categories=HardwareSettings;Settings;
 Name=GTK CUPS
 Comment=GTK Frontend for CUPS
 Exec=%{_bindir}/gtklp
@@ -59,7 +59,7 @@ EOF
 cat << EOF > %buildroot%{_datadir}/applications/mandriva-gtklpq.desktop
 [Desktop Entry]
 Type=Application
-Categories=HardwareSettings;
+Categories=HardwareSettings;Settings;
 Name=GTK Printer Queue
 Comment=GTK Frontend to GTKlp CUPS Queue
 Exec=%{_bindir}/gtklpq
