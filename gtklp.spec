@@ -1,7 +1,7 @@
 Summary: 	A GTK frontend for CUPS
 Name: 		gtklp
 Version: 	1.2.5
-Release: 	%mkrel 4
+Release: 	%mkrel 5
 License: 	GPLv2+
 Group: 		System/Configuration/Printing
 Source0: 	http://prdownloads.sourceforge.net/gtklp/%{name}-%{version}.src.tar.bz2
@@ -10,6 +10,7 @@ Source1: 	gtklp-icon48.png
 Source2: 	gtklp-icon32.png
 Source3: 	gtklp-icon16.png
 Patch0:		gtklp-1.2.2-simple.diff
+Patch1:		gtklp-1.2.5-mdv-fix-str-fmt.patch
 BuildRequires: 	cups-common
 BuildRequires:  gtk+2-devel
 BuildRequires: 	cups-devel > 1.1
@@ -22,7 +23,8 @@ A GTK frontend for CUPS
 %prep
 
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1 -b .strfmt
 
 mkdir -p Mandriva
 cp %{SOURCE1} Mandriva/gtklp-icon48.png
