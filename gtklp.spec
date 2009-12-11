@@ -1,15 +1,15 @@
 Summary: 	A GTK frontend for CUPS
 Name: 		gtklp
-Version: 	1.2.5
-Release: 	%mkrel 5
+Version: 	1.2.7
+Release: 	%mkrel 1
 License: 	GPLv2+
 Group: 		System/Configuration/Printing
-Source0: 	http://prdownloads.sourceforge.net/gtklp/%{name}-%{version}.src.tar.bz2
-Url: 		http://www.stud.uni-hannover.de/~sirtobi/gtklp/
+Source0: 	http://prdownloads.sourceforge.net/gtklp/%{name}-%{version}.src.tar.gz
+Url: 		http://gtklp.sourceforge.net/
 Source1: 	gtklp-icon48.png
 Source2: 	gtklp-icon32.png
 Source3: 	gtklp-icon16.png
-Patch0:		gtklp-1.2.2-simple.diff
+Patch0:		gtklp-1.2.7-simple.patch
 Patch1:		gtklp-1.2.5-mdv-fix-str-fmt.patch
 BuildRequires: 	cups-common
 BuildRequires:  gtk+2-devel
@@ -21,9 +21,8 @@ BuildRoot: 	%{_tmppath}/%{name}-%{version}-buildroot
 A GTK frontend for CUPS
 
 %prep
-
 %setup -q
-%patch0 -p1
+%patch0 -p1 -b .simple
 %patch1 -p1 -b .strfmt
 
 mkdir -p Mandriva
@@ -32,7 +31,7 @@ cp %{SOURCE2} Mandriva/gtklp-icon32.png
 cp %{SOURCE3} Mandriva/gtklp-icon16.png
 
 %build
-
+autoreconf -fi
 %configure2_5x
 
 %make
@@ -45,7 +44,7 @@ install -d %{buildroot}%{_liconsdir}
 install -d %{buildroot}%{_iconsdir}
 install -d %{buildroot}%{_miconsdir}
 
-%makeinstall
+%makeinstall_std
 
 # menu entry
 cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
