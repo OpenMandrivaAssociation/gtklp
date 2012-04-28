@@ -25,6 +25,11 @@ A GTK frontend for CUPS
 %patch0 -p1 -b .simple
 %patch1 -p1 -b .strfmt
 
+sed -e '/DEF_BROWSER_CMD/{s:netscape:firefox:}' \
+        -e '/DEF_HELP_HOME/{s:631/sum.html#STANDARD_OPTIONS:631/help/:}' \
+        -i include/defaults.h
+
+
 mkdir -p Mandriva
 cp %{SOURCE1} Mandriva/gtklp-icon48.png
 cp %{SOURCE2} Mandriva/gtklp-icon32.png
@@ -32,7 +37,7 @@ cp %{SOURCE3} Mandriva/gtklp-icon16.png
 
 %build
 autoreconf -fi
-%configure2_5x
+%configure2_5x --enable-forte 
 
 %make
 
