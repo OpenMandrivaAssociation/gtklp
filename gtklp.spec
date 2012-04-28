@@ -1,6 +1,6 @@
 Summary: 	A GTK frontend for CUPS
 Name: 		gtklp
-Version: 	1.2.8
+Version: 	1.2.8a
 Release: 	%mkrel 1
 License: 	GPLv2+
 Group: 		System/Configuration/Printing
