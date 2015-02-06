@@ -1,7 +1,7 @@
 Summary:	A GTK front-end for CUPS
 Name:		gtklp
 Version:	1.3.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Configuration/Printing
 Source0:	http://prdownloads.sourceforge.net/gtklp/%{name}-%{version}.src.tar.gz
