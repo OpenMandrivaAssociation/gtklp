@@ -9,7 +9,7 @@ Url:		http://gtklp.sourceforge.net/
 Source1:	gtklp-icon48.png
 Source2:	gtklp-icon32.png
 Source3:	gtklp-icon16.png
-Patch1:		gtklp-1.2.5-mdv-fix-str-fmt.patch
+Patch1:		gtklp-1.3.4-mdv-fix-str-fmt.patch
 BuildRequires:	cups-common
 BuildRequires:	cups-devel
 BuildRequires:	pkgconfig(gtk+-2.0)
