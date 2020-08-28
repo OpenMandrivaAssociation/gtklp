@@ -1,7 +1,7 @@
 Summary:	A GTK front-end for CUPS
 Name:		gtklp
-Version:	1.3.0
-Release:	2
+Version:	1.3.4
+Release:	1
 License:	GPLv2+
 Group:		System/Configuration/Printing
 Source0:	http://prdownloads.sourceforge.net/gtklp/%{name}-%{version}.src.tar.gz
@@ -41,8 +41,8 @@ find . -perm 600 | xargs chmod 644
 
 %build
 autoreconf -fi
-%configure2_5x --enable-forte
-%make
+%configure --enable-forte
+%make_build
 
 %install
 mkdir -p %{buildroot}/%{_datadir}/applications/
@@ -50,7 +50,7 @@ install -d %{buildroot}%{_liconsdir}
 install -d %{buildroot}%{_iconsdir}
 install -d %{buildroot}%{_miconsdir}
 
-%makeinstall_std
+%make_install
 
 # menu entry
 cat << EOF > %{buildroot}%{_datadir}/applications/%{name}.desktop
