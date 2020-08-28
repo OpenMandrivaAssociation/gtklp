@@ -37,7 +37,7 @@ sed -e '/DEF_BROWSER_CMD/{s:netscape:firefox:}' \
 	-e '/DEF_HELP_HOME/{s:631/sum.html#STANDARD_OPTIONS:631/help/:}' \
 	-i include/defaults.h
 
-find . -perm 600 | xargs chmod 644
+#find . -perm 600 | xargs chmod 644
 
 %build
 autoreconf -fi
