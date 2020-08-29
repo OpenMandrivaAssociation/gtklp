@@ -37,9 +37,13 @@ sed -e '/DEF_BROWSER_CMD/{s:netscape:firefox:}' \
 	-e '/DEF_HELP_HOME/{s:631/sum.html#STANDARD_OPTIONS:631/help/:}' \
 	-i include/defaults.h
 
-#find . -perm 600 | xargs chmod 644
-
 %build
+# As of Clang 11, package won't build with clang due error:
+# ld: error: duplicate symbol: progressBar
+# >>> defined in file.o
+# previous Clang 10 build fine. Gcc is fine too.
+export CC=gcc
+export CXX=g++
 autoreconf -fi
 %configure --enable-forte
 %make_build
