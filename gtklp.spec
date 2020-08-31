@@ -1,3 +1,5 @@
+%define _disable_lto 1
+
 Summary:	A GTK front-end for CUPS
 Name:		gtklp
 Version:	1.3.4
