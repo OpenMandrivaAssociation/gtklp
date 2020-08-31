@@ -42,7 +42,7 @@ sed -e '/DEF_BROWSER_CMD/{s:netscape:firefox:}' \
 # ld: error: duplicate symbol: progressBar
 # >>> defined in file.o
 # previous Clang 10 build fine.
-%global build_ldflags %{build_ldflags} -fcommon
+%global build_ldflags %{build_ldflags} -fno-common
 #export CC=gcc
 #export CXX=g++
 autoreconf -fi
