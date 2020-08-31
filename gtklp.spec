@@ -41,9 +41,10 @@ sed -e '/DEF_BROWSER_CMD/{s:netscape:firefox:}' \
 # As of Clang 11, package won't build with clang due error:
 # ld: error: duplicate symbol: progressBar
 # >>> defined in file.o
-# previous Clang 10 build fine. Gcc is fine too.
-export CC=gcc
-export CXX=g++
+# previous Clang 10 build fine.
+%global build_ldflags %{build_ldflags} -fcommon
+#export CC=gcc
+#export CXX=g++
 autoreconf -fi
 %configure --enable-forte
 %make_build
