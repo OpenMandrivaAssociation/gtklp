@@ -8,7 +8,7 @@ Release:	1
 License:	GPLv2+
 Group:		System/Configuration/Printing
 Source0:	http://prdownloads.sourceforge.net/gtklp/%{name}-%{version}.src.tar.gz
-Url:		http://gtklp.sourceforge.net/
+Url:		https://gtklp.sourceforge.net/
 Source1:	gtklp-icon48.png
 Source2:	gtklp-icon32.png
 Source3:	gtklp-icon16.png
